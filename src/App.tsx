@@ -81,6 +81,10 @@ body {
   transition: background-color 0.5s, color 0.5s;
   height: 100vh;
   width: 100vw;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
 }
 a {
   text-decoration:none;
