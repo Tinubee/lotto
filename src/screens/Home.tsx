@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import styled from "styled-components";
 import { getAllWinningNumber, IGetWinningNumber } from "../api/lotto";
+import Loading from "../components/Loading";
 import PageTitle from "../components/PageTitle";
 import WinningNumber from "../components/WinningNumber";
 
@@ -13,7 +14,9 @@ function Home() {
   return (
     <Container>
       <PageTitle title="Home"></PageTitle>
-      {isLoading ? null : (
+      {isLoading ? (
+        <Loading />
+      ) : (
         <Wrapper>
           {data
             ?.slice(0)

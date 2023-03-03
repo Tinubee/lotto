@@ -6,6 +6,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { getTurnWinningNumber, IGetWinningNumber } from "../api/lotto";
 import { latestTurnNumberAtom, turnNumberAtom } from "../atoms";
+import Loading from "../components/Loading";
 import LottoCard from "../components/LottoCard";
 import { Container } from "./Home";
 
@@ -32,7 +33,9 @@ function About() {
 
   return (
     <Container>
-      {isLoading ? null : (
+      {isLoading ? (
+        <Loading />
+      ) : (
         <Wrapper>
           <FontAwesomeIcon
             icon={faArrowLeft}
