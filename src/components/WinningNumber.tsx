@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { IGetWinningNumber } from "../api/lotto";
 
-interface IItemType {
+export interface IItemType {
   item: IGetWinningNumber;
 }
 
 function WinningNumber({ item }: IItemType) {
-  console.log(item);
   return (
     <NumbersContainer>
+      <h1>{item?.draw_no}회</h1>
       {item?.numbers.map((num: any, index: number) => (
         <Circle key={index} number={num}>
           {num}
@@ -29,6 +29,7 @@ const NumbersContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-top: 20px;
 `;
 
 const Circle = styled.div<{ number: number }>`
@@ -38,6 +39,7 @@ const Circle = styled.div<{ number: number }>`
   font-size: 28px;
   height: 50px;
   width: 50px;
+  color: #fbfbfb;
   border-radius: 50%;
   background-color: ${(props) =>
     props.number > 40

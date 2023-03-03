@@ -4,11 +4,6 @@ import { getAllWinningNumber, IGetWinningNumber } from "../api/lotto";
 import PageTitle from "../components/PageTitle";
 import WinningNumber from "../components/WinningNumber";
 
-const Container = styled.div`
-  display: flex;
-  height: 80vh;
-`;
-
 function Home() {
   const { data, isLoading } = useQuery<IGetWinningNumber[]>(
     ["allWinningNumber"],
@@ -34,7 +29,12 @@ function Home() {
 
 export default Home;
 
+export const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+`;
+
 const Wrapper = styled.div`
-  display: grid;
-  gap: 10px;
+  padding: 20px;
 `;

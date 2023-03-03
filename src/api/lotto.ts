@@ -1,4 +1,4 @@
-const BASE_URL = "https://smok95.github.io/lotto/results";
+const BASE_URL = "https://smok95.github.io/lotto";
 
 interface IDivision {
   prize: number;
@@ -21,5 +21,21 @@ export interface IGetWinningNumber {
 }
 
 export function getAllWinningNumber() {
-  return fetch(`${BASE_URL}/all.json`).then((res) => res.json());
+  return fetch(`${BASE_URL}/results/all.json`).then((res) => res.json());
+}
+
+export function getTurnWinningNumber(turn: number) {
+  return fetch(`${BASE_URL}/results/${turn + ""}.json`).then((res) =>
+    res.json()
+  );
+}
+
+export function getLatestWinningNumber() {
+  return fetch(`${BASE_URL}/results/latest.json`).then((res) => res.json());
+}
+
+export function getWinningPlace(turn: string) {
+  return fetch(`${BASE_URL}/winning-stores/${turn}.json`).then((res) =>
+    res.json()
+  );
 }

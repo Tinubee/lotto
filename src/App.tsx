@@ -1,11 +1,14 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
-import { useRecoilValue } from "recoil";
-import { isDarkAtom } from "./atoms";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { isDarkAtom, latestTurnNumberAtom, turnNumberAtom } from "./atoms";
 import { RouterProvider } from "react-router-dom";
 import router from "./Router";
 import JSConfetti from "js-confetti";
 import { HelmetProvider } from "react-helmet-async";
+import { useQuery } from "react-query";
+import { getLatestWinningNumber, IGetWinningNumber } from "./api/lotto";
+import { useEffect } from "react";
 
 export const conteffi = new JSConfetti();
 
@@ -86,6 +89,18 @@ a {
 `;
 function App() {
   const isDark = useRecoilValue(isDarkAtom);
+  const setTurnNumber = useSetRecoilState(turnNumberAtom);
+  const setLatestTurnNumber = useSetRecoilState(latestTurnNumberAtom);
+
+  const { data, isLoading } = useQuery<IGetWinningNumber>(
+    ["latestWinningNumber"],
+    getLatestWinningNumber
+  );
+
+  useEffect(() => {
+    setTurnNumber(data?.draw_no!);
+    setLatestTurnNumber(data?.draw_no!);
+  }, [data, setTurnNumber, isLoading, setLatestTurnNumber]);
 
   return (
     <HelmetProvider>
