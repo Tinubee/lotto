@@ -7,5 +7,10 @@ declare module "styled-components" {
     borderColor: string;
     iconbgColor: string;
     icontextColor: string;
+    oneColor: string;
+    tenColor: string;
+    twentyColor: string;
+    thirtyColor: string;
+    fourtyColor: string;
   }
 }

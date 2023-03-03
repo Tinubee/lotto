@@ -1,31 +1,40 @@
+import { useQuery } from "react-query";
 import styled from "styled-components";
-import { conteffi } from "../App";
+import { getAllWinningNumber, IGetWinningNumber } from "../api/lotto";
 import PageTitle from "../components/PageTitle";
+import WinningNumber from "../components/WinningNumber";
 
 const Container = styled.div`
   display: flex;
   height: 80vh;
-  justify-content: center;
-  align-items: center;
 `;
 
-const Button = styled.button``;
-
 function Home() {
-  const handleClick = () => {
-    conteffi.addConfetti({
-      emojis: ["🍔", "🍕", "🍺"],
-      emojiSize: 100,
-      confettiNumber: 30,
-    });
-  };
+  const { data, isLoading } = useQuery<IGetWinningNumber[]>(
+    ["allWinningNumber"],
+    getAllWinningNumber
+  );
 
   return (
     <Container>
       <PageTitle title="Home"></PageTitle>
-      <Button onClick={handleClick}>CLICK</Button>
+      {isLoading ? null : (
+        <Wrapper>
+          {data
+            ?.slice(0)
+            .reverse()
+            .map((item) => {
+              return <WinningNumber key={item.draw_no} item={item} />;
+            })}
+        </Wrapper>
+      )}
     </Container>
   );
 }
 
 export default Home;
+
+const Wrapper = styled.div`
+  display: grid;
+  gap: 10px;
+`;
