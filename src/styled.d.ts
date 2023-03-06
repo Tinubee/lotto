@@ -12,5 +12,6 @@ declare module "styled-components" {
     twentyColor: string;
     thirtyColor: string;
     fourtyColor: string;
+    hoverColor: string;
   }
 }

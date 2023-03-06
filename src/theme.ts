@@ -11,6 +11,7 @@ export const darkTheme: DefaultTheme = {
   twentyColor: "#f37070",
   thirtyColor: "#aaaaaa",
   fourtyColor: "#b0d840",
+  hoverColor: "#ffab00",
 };
 
 export const lightTheme: DefaultTheme = {
@@ -24,4 +25,5 @@ export const lightTheme: DefaultTheme = {
   twentyColor: "#f37070",
   thirtyColor: "#aaaaaa",
   fourtyColor: "#b0d840",
+  hoverColor: "#ffab00",
 };

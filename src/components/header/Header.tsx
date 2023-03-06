@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Mode from "./Mode";
 
-const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div`
   display: flex;
   padding: 15px 0px;
   align-items: center;
+  text-align: center;
   -ms-user-select: none;
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
@@ -13,10 +14,11 @@ const HeaderContainer = styled.div`
   user-select: none;
 `;
 
-const Tabs = styled.div`
+export const Tabs = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
+  white-space: nowrap;
 `;
 export const Tab = styled.div`
   cursor: pointer;

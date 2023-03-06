@@ -1,13 +1,26 @@
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowRightFromBracket,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { IGetWinningNumber } from "../api/lotto";
+import { clickSeeTurnInfoAtom, turnNumberAtom } from "../atoms";
 
 export interface IItemType {
   item: IGetWinningNumber;
 }
 
 function WinningNumber({ item }: IItemType) {
+  const setTurnNumber = useSetRecoilState(turnNumberAtom);
+  const setSeeTrun = useSetRecoilState(clickSeeTurnInfoAtom);
+
+  const changeTurnNumber = (turn: number) => {
+    setTurnNumber(turn);
+    setSeeTrun(true);
+  };
+
   return (
     <NumbersContainer>
       <hr />
@@ -23,6 +36,11 @@ function WinningNumber({ item }: IItemType) {
         ))}
         <FontAwesomeIcon icon={faPlus} />
         <Circle number={item?.bonus_no}>{item?.bonus_no}</Circle>
+        <FontAwesomeIcon
+          size="xl"
+          icon={faArrowRightFromBracket}
+          onClick={() => changeTurnNumber(item?.draw_no)}
+        />
       </Number>
     </NumbersContainer>
   );
@@ -50,6 +68,12 @@ const Number = styled.div`
   align-items: center;
   gap: 10px;
   margin-top: 5px;
+  svg {
+    cursor: pointer;
+    :hover {
+      color: ${(props) => props.theme.hoverColor};
+    }
+  }
 `;
 
 const NumbersContainer = styled.div`
