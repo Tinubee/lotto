@@ -10,25 +10,49 @@ export interface IItemType {
 function WinningNumber({ item }: IItemType) {
   return (
     <NumbersContainer>
-      <h1>{item?.draw_no}회</h1>
-      {item?.numbers.map((num: any, index: number) => (
-        <Circle key={index} number={num}>
-          {num}
-        </Circle>
-      ))}
-      <FontAwesomeIcon icon={faPlus} />
-      <Circle number={item?.bonus_no}>{item?.bonus_no}</Circle>
+      <hr />
+      <Info>
+        <DrawNumber>{item?.draw_no}회</DrawNumber>
+        <Date>{item?.date.split("T")[0]}</Date>
+      </Info>
+      <Number>
+        {item?.numbers.map((num: any, index: number) => (
+          <Circle key={index} number={num}>
+            {num}
+          </Circle>
+        ))}
+        <FontAwesomeIcon icon={faPlus} />
+        <Circle number={item?.bonus_no}>{item?.bonus_no}</Circle>
+      </Number>
     </NumbersContainer>
   );
 }
 
 export default WinningNumber;
 
-const NumbersContainer = styled.div`
+const DrawNumber = styled.span`
+  font-size: 22px;
+`;
+
+const Date = styled.span`
+  opacity: 0.8;
+`;
+
+const Info = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+const Number = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-top: 5px;
+`;
+
+const NumbersContainer = styled.div`
   margin-top: 20px;
 `;
 

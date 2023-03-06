@@ -18,6 +18,7 @@ export interface IGetWinningNumber {
   divisions: IDivision[];
   total_sales_amount: number;
   winners_combination: ICombination[];
+  date: string;
 }
 
 export function getAllWinningNumber() {

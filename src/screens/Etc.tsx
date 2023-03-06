@@ -1,16 +1,15 @@
 import { Outlet } from "react-router-dom";
-import { HomeMenus } from "../api/menus";
+import { EtcMenus } from "../api/menus";
 import Menu from "../components/menu/menu";
 import PageTitle from "../components/PageTitle";
 
-function Home() {
+function Etc() {
   return (
     <>
-      <PageTitle title="Home"></PageTitle>
-      <Menu menus={HomeMenus} />
+      <PageTitle title="Etc"></PageTitle>
+      <Menu menus={EtcMenus} />
       <Outlet />
     </>
   );
 }
-
-export default Home;
+export default Etc;

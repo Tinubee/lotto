@@ -1,16 +1,15 @@
 import { Outlet } from "react-router-dom";
-import { HomeMenus } from "../api/menus";
+import { PlaceMenus } from "../api/menus";
 import Menu from "../components/menu/menu";
 import PageTitle from "../components/PageTitle";
 
-function Home() {
+function Place() {
   return (
     <>
-      <PageTitle title="Home"></PageTitle>
-      <Menu menus={HomeMenus} />
+      <PageTitle title="Place"></PageTitle>
+      <Menu menus={PlaceMenus} />
       <Outlet />
     </>
   );
 }
-
-export default Home;
+export default Place;

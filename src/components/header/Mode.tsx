@@ -1,10 +1,8 @@
 import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { isDarkAtom } from "../../atoms";
-import { Tab } from "./Header";
 
 const ModeContainer = styled.div`
   display: grid;
@@ -19,7 +17,7 @@ const ModeContainer = styled.div`
   }
 `;
 
-export const Icon = styled.div<{ mode: string }>`
+export const Icon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,12 +28,10 @@ export const Icon = styled.div<{ mode: string }>`
   background-color: ${(props) => props.theme.bgColor};
   transition: background-color 0.5s, color 0.5s;
   padding: 25px;
-  color: ${(props) =>
-    props.mode === "normal" ? props.theme.icontextColor : "#b10000"};
+  color: ${(props) => props.theme.icontextColor};
   :hover {
     background-color: ${(props) => props.theme.iconbgColor};
-    color: ${(props) =>
-      props.mode === "normal" ? props.theme.textColor : "#ff0000"};
+    color: ${(props) => props.theme.textColor};
   }
 `;
 
@@ -49,17 +45,14 @@ function Mode() {
   return (
     <ModeContainer>
       {!darkAtom ? (
-        <Icon mode="normal" onClick={toggleMode}>
+        <Icon onClick={toggleMode}>
           <FontAwesomeIcon icon={faSun} />
         </Icon>
       ) : (
-        <Icon mode="normal" onClick={toggleMode}>
+        <Icon onClick={toggleMode}>
           <FontAwesomeIcon icon={faMoon} />
         </Icon>
       )}
-      <Tab>
-        <Link to={"/login"}>Login</Link>
-      </Tab>
     </ModeContainer>
   );
 }

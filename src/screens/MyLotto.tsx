@@ -1,16 +1,15 @@
 import { Outlet } from "react-router-dom";
-import { HomeMenus } from "../api/menus";
+import { MyLottoMenus } from "../api/menus";
 import Menu from "../components/menu/menu";
 import PageTitle from "../components/PageTitle";
 
-function Home() {
+function MyLotto() {
   return (
     <>
-      <PageTitle title="Home"></PageTitle>
-      <Menu menus={HomeMenus} />
+      <PageTitle title="MyLotto"></PageTitle>
+      <Menu menus={MyLottoMenus} />
       <Outlet />
     </>
   );
 }
-
-export default Home;
+export default MyLotto;

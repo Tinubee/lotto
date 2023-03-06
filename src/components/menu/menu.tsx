@@ -1,9 +1,30 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Mode from "./Mode";
+
+export interface IMenuType {
+  menus: string[];
+}
+
+function Menu({ menus }: IMenuType) {
+  return (
+    <HeaderContainer>
+      <Tabs>
+        {menus.map((menu: string, index: number) => {
+          return (
+            <Tab key={menu}>
+              <Link to={`${index}`}>{menu}</Link>
+            </Tab>
+          );
+        })}
+      </Tabs>
+    </HeaderContainer>
+  );
+}
+export default Menu;
 
 const HeaderContainer = styled.div`
   display: flex;
+  text-align: center;
   padding: 15px 0px;
   align-items: center;
   -ms-user-select: none;
@@ -31,29 +52,3 @@ export const Tab = styled.div`
     transition: background-color 0.5s;
   }
 `;
-
-function Header() {
-  return (
-    <HeaderContainer>
-      <Tabs>
-        <Tab>
-          <Link to={"/0"}>번호 분석</Link>
-        </Tab>
-        <Tab>
-          <Link to={"/make/0"}>번호 생성</Link>
-        </Tab>
-        <Tab>
-          <Link to={"/my/0"}>나의 로또</Link>
-        </Tab>
-        <Tab>
-          <Link to={"/place/0"}>판매점</Link>
-        </Tab>
-        <Tab>
-          <Link to={"/etc/0"}>기타</Link>
-        </Tab>
-      </Tabs>
-      <Mode />
-    </HeaderContainer>
-  );
-}
-export default Header;
