@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { selectNumber } from "../atoms";
+import { selectNumberAtom } from "../atoms";
 import { IItemType } from "./WinningNumber";
 
 function LottoCard({ item }: IItemType) {
   const [winNumber, setWinNumber] = useState<number[]>([]);
+  const selectNumber = useRecoilValue(selectNumberAtom);
 
   useEffect(() => {
     setWinNumber(item.numbers);
@@ -14,8 +16,8 @@ function LottoCard({ item }: IItemType) {
     <Card>
       {selectNumber.map((num) => {
         return (
-          <Number key={num} isWin={winNumber.includes(num)}>
-            {num}
+          <Number key={num.number} isWin={winNumber.includes(num.number)}>
+            {num.number}
           </Number>
         );
       })}
