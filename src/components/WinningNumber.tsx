@@ -80,7 +80,7 @@ const NumbersContainer = styled.div`
   margin-top: 20px;
 `;
 
-const Circle = styled.div<{ number: number }>`
+export const Circle = styled.div<{ number: number }>`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -6,9 +6,9 @@ interface IDivision {
 }
 
 interface ICombination {
-  auto: number;
-  semi_auto: number;
-  manual: number;
+  auto?: number;
+  semi_auto?: number;
+  manual?: number;
 }
 
 export interface IGetWinningNumber {
@@ -17,7 +17,7 @@ export interface IGetWinningNumber {
   bonus_no: number;
   divisions: IDivision[];
   total_sales_amount: number;
-  winners_combination: ICombination[];
+  winners_combination: ICombination;
   date: string;
 }
 

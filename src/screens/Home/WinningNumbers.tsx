@@ -38,7 +38,7 @@ function WinningNumbers() {
 
 export default WinningNumbers;
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   gap: 10px;
   padding: 50px;
@@ -52,8 +52,9 @@ const Title = styled.div`
 export const Wrapper = styled.div`
   padding: 20px;
   border: 1px solid ${(props) => props.theme.borderColor};
-  border-radius: 10px;
-  height: 70vh;
+  border-radius: 5px;
+  width: 80vh;
+  height: 150vh;
   overflow: scroll;
   overflow-x: hidden;
   white-space: nowrap;
