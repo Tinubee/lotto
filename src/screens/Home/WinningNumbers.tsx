@@ -38,7 +38,7 @@ function WinningNumbers() {
 
 export default WinningNumbers;
 
-export const Container = styled.div`
+const Container = styled.div`
   display: flex;
   gap: 10px;
   padding: 50px;

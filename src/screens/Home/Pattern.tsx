@@ -84,4 +84,5 @@ const Wrapper = styled.div`
 const Container = styled.div`
   justify-content: center;
   padding: 0px 50px;
+  height: 100vh;
 `;
