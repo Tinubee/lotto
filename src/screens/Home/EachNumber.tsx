@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useQuery } from "react-query";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
@@ -10,12 +10,9 @@ import { Circle } from "../../components/WinningNumber";
 function EachNumber() {
   const [selectNumber, setSelectNumber] = useRecoilState(selectNumberAtom);
   const [numberSort, setNumberSort] = useState(false);
-  const { data, isLoading } = useQuery<IGetWinningNumber[]>(
-    ["allWinningNumber"],
-    getAllWinningNumber
-  );
 
-  useEffect(() => {
+  const onSuccess = () => {
+    if (data === undefined) refetch();
     if (selectNumber[0].count === 0) {
       data?.map((division) => {
         division.numbers.map((number) => {
@@ -36,7 +33,15 @@ function EachNumber() {
         return "";
       });
     }
-  }, [data, selectNumber, setSelectNumber]);
+  };
+
+  const { data, isLoading, refetch } = useQuery<IGetWinningNumber[]>(
+    ["allWinningNumber"],
+    getAllWinningNumber,
+    {
+      onSuccess,
+    }
+  );
 
   const handleSortClick = () => {
     if (!numberSort) {
