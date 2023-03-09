@@ -42,10 +42,12 @@ function Pattern() {
               size="2x"
               onClick={() => handleChangeTurn("before")}
             />
+
             <Center>
               <Turn>{data?.draw_no} 회</Turn>
               <LottoCard item={data!} />
             </Center>
+
             <FontAwesomeIcon
               icon={faArrowRight}
               size="2x"

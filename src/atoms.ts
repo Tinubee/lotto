@@ -25,6 +25,11 @@ export const clickSeeTurnInfoAtom = atom<boolean>({
   default: false,
 });
 
+export const backAtom = atom<boolean>({
+  key: "back",
+  default: false,
+});
+
 export const selectNumberAtom = atom<ISelectNumber[]>({
   key: "selectNumber",
   default: [

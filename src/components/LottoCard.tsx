@@ -7,7 +7,6 @@ import { IItemType } from "./WinningNumber";
 function LottoCard({ item }: IItemType) {
   const [winNumber, setWinNumber] = useState<number[]>([]);
   const selectNumber = useRecoilValue(selectNumberAtom);
-
   useEffect(() => {
     setWinNumber(item.numbers);
   }, [item]);
@@ -28,7 +27,6 @@ function LottoCard({ item }: IItemType) {
 export default LottoCard;
 
 const Card = styled.div`
-  position: relative;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
