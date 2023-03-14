@@ -39,19 +39,19 @@ function Header() {
     <HeaderContainer>
       <Tabs>
         <Tab>
-          <Link to={"/0"}>번호 분석</Link>
+          <Link to={"0"}>번호 분석</Link>
         </Tab>
         <Tab>
-          <Link to={"/make/0"}>번호 생성</Link>
+          <Link to={"make/0"}>번호 생성</Link>
         </Tab>
         <Tab>
-          <Link to={"/my/0"}>나의 로또</Link>
+          <Link to={"my/0"}>나의 로또</Link>
         </Tab>
         <Tab>
-          <Link to={"/place/0"}>판매점</Link>
+          <Link to={"place/0"}>판매점</Link>
         </Tab>
         <Tab>
-          <Link to={"/etc/0"}>기타</Link>
+          <Link to={"etc/0"}>기타</Link>
         </Tab>
       </Tabs>
       <Mode />
