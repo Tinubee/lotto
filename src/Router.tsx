@@ -27,7 +27,7 @@ import Faq from "./screens/Etc/Faq";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/lotto",
     element: <Root />,
     children: [
       {
